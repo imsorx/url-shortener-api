@@ -1,0 +1,6 @@
+{
+  "watch": ["app"],
+  "ext": "ts",
+  "ignore": ["app/public"],
+  "exec": "cross-env NODE_ENV=development ts-node app/server.ts"
+}

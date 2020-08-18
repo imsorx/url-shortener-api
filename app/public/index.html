@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortner</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Vue Container -->
+    <main id="app">
+      <!-- Navbar -->
+      <nav>
+        <span>URL Shortner</span>
+        <span>LOGIN</span>
+        <ul>
+          <li class="active">Home</li>
+          <li>View active</li>
+          <li>Logout</li>
+        </ul>
+      </nav>
+
+      <!-- Main Section -->
+      <div class="content">
+        <!-- Login form -->
+        <form @submit.prevent="auth">
+          <h1>Login to proceed...</h1>
+          <section class="control">
+            <input
+              type="text"
+              name="username"
+              id="usr"
+              v-model="usr"
+              required
+            />
+            <label for="usr">Username</label>
+          </section>
+          <section class="control">
+            <input
+              type="password"
+              name="password"
+              id="pwd"
+              v-model="pwd"
+              required
+            />
+            <label for="pwd">Password</label>
+          </section>
+          <button type="submit">LOGIN</button>
+        </form>
+      </div>
+    </main>
+    <script src="vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

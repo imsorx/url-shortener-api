@@ -1,0 +1,143 @@
+/* a nice Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/* Colors */
+:root {
+  --bg: #d3dde6;
+  --bg-light: #faf8f0;
+  --fg: #043353;
+  --asst: #18a4e0;
+}
+
+/* Default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+}
+
+/* Main body (not body because of VUE) */
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  height: 5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background: var(--bg-light);
+}
+span {
+  margin-left: 1em;
+}
+ul {
+  display: flex;
+  list-style-type: none;
+}
+ul li {
+  padding: 1em 0.5em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: var(--bg);
+  cursor: default;
+  transition: 250ms;
+}
+ul li.active{
+  color: var(--fg);
+}
+ul li:hover {
+  color: var(--fg);
+}
+
+/* Contents */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 5em);
+  width: 80%;
+}
+
+/* Form */
+form {
+  display: flex;
+  padding: 1.5em;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-light);
+  border-radius: 4px;
+  box-shadow: 2px 4px 12px -8px rgba(0, 0, 0, 0.2);
+}
+h1 {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+.control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border: 1px solid var(--bg);
+  border-radius: 2px;
+}
+.control:focus-within {
+  border: 1px solid var(--asst);
+}
+label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(0, -50%);
+  transition: all 200ms;
+  color: var(--bg);
+  background: var(--bg-light);
+  padding: 0px 4px;
+  cursor: text;
+}
+input {
+  color: var(--fg);
+  padding: 12px 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1em;
+}
+input:valid ~ label,
+input:focus ~ label {
+  color: var(--asst);
+  font-size: 0.8rem;
+  transform: translate(0, -200%);
+}
+button {
+  color: var(--asst);
+  padding: 0.5em 0;
+  border: none;
+  background: transparent;
+  border: 1px solid var(--asst);
+  outline: none;
+  font-size: 1.1em;
+}
+button:hover {
+  background: var(--bg);
+}
+button:active {
+  color: #ffffff;
+  background: var(--asst);
+}
