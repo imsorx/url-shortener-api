@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "https://github.com/imsorx/url-shortner-api.git"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
     "nanoid": "^3.1.12"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.7",
     "@types/helmet": "0.0.47",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.6.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",

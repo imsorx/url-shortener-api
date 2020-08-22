@@ -10,44 +10,13 @@
     <!-- Vue Container -->
     <main id="app">
       <!-- Navbar -->
-      <nav>
-        <span>URL Shortner</span>
-        <span>LOGIN</span>
-        <ul>
-          <li class="active">Home</li>
-          <li>View active</li>
-          <li>Logout</li>
-        </ul>
-      </nav>
+      <navbar v-if="logged" @link="handleLink"></navbar>
 
       <!-- Main Section -->
-      <div class="content">
-        <!-- Login form -->
-        <form @submit.prevent="auth">
-          <h1>Login to proceed...</h1>
-          <section class="control">
-            <input
-              type="text"
-              name="username"
-              id="usr"
-              v-model="usr"
-              required
-            />
-            <label for="usr">Username</label>
-          </section>
-          <section class="control">
-            <input
-              type="password"
-              name="password"
-              id="pwd"
-              v-model="pwd"
-              required
-            />
-            <label for="pwd">Password</label>
-          </section>
-          <button type="submit">LOGIN</button>
-        </form>
-      </div>
+      <!-- Login form -->
+      <login-form v-if="!logged" @auth="auth"></login-form>
+      <url-list v-if="show && logged"></url-list>
+      <url-form v-if="!show && logged"></url-form>
     </main>
     <script src="vue.js"></script>
     <script src="main.js"></script>

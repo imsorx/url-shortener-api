@@ -1,27 +1,31 @@
+import ControllerInterface from './controller.interface';
 import express, { Router, Response, Request } from 'express';
 import * as path from 'path';
-import ControllerInterface from './controller.interface';
-import AuthController from './auth.controller';
+import MiddlewareInterface from 'app/middlewares/middleware.interface';
 
 export default class HomeController implements ControllerInterface {
 
     public router: Router = express.Router();
+    middlewares: MiddlewareInterface[] | undefined;
 
-    constructor() {
+    constructor(middlewares?: MiddlewareInterface[]) {
+        if (middlewares) this.middlewares = middlewares;
         this.setHandler();
     }
 
     setHandler() {
         this.router.get('/', this.homeHandler);
-        this.router.post('/', this.newCode);
+        if (this.middlewares)
+            this.router.post('/', this.middlewares, this.newCode);
+        else this.router.post('/', this.newCode)
     }
 
     homeHandler(req: Request, res: Response) {
         let _path = path.join(__dirname, '../public/index.html');
         return res.sendFile(_path);
     }
+
     newCode(req: Request, res: Response) {
-        // if () return res.json({ ...req.body });
-        return res.json({ message: 'Login first!' });
+        return res.json({ message: 'Working!' });
     }
 }
